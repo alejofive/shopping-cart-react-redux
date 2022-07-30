@@ -44,7 +44,6 @@ const Product = () => {
           <h4 className="font-bold uppercase text-gray-400">
             {product.category}
           </h4>
-          <Skeleton className="h-36 w-36"></Skeleton>
           <h1 Name="text-4xl my-6">{product.title}</h1>
           <p>
             Rating {product.rating && product.rating.rate}
