@@ -3,7 +3,7 @@ import { Home } from "./pages/Home";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Productos from "./components/Productos";
+import Products from "./components/Products";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Productos />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>

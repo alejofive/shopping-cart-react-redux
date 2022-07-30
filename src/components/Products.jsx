@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const Productos = () => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +15,6 @@ const Productos = () => {
 
       if (componentMounted) {
         setData(await response.clone().json());
-        setFilter(await response.json());
         setLoading(false);
       }
 
