@@ -1,7 +1,7 @@
 import "./App.css";
 import { Home } from "./pages/Home";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Products from "./components/Products";
 import Navbar from "./components/Navbar";
@@ -11,7 +11,7 @@ import Cart from "./components/Cart";
 function App() {
   return (
     <div className="">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

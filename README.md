@@ -13,6 +13,10 @@ Ejemplo de un carrito de compras.
 
 https://fakestoreapi.com/products
 
+## Demo
+
+https://alejofive.github.io/shopping-cart-react-redux/
+
 ## Vistas
 
 ![Tux, the Linux mascot](/shoppingcart.png)
