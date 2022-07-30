@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
 const Productos = () => {
   const [data, setData] = useState([]);
@@ -45,7 +45,7 @@ const Productos = () => {
       <div>
         <div className="mt-10 flex justify-center gap-3 pb-5">
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white "
+            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white"
             onClick={() => setFilter(data)}
           >
             All
@@ -89,12 +89,12 @@ const Productos = () => {
                     {product.title.substring(0, 12)}...
                   </h1>
                   <p className="my-2 mb-5 font-bold">${product.price}</p>
-                  <a
-                    href=""
+                  <Link
+                    to={`/product/${product.id}`}
                     className="mt-3 px-4 py-2 bg-black text-white rounded"
                   >
                     Buy Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             );
