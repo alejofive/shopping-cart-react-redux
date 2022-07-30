@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -8,24 +8,52 @@ const Navbar = () => {
 
   return (
     <div className="py-5 border border-b-2">
-      <div className="flex justify-between items-center max-w-screen-lg  m-auto">
+      <div className="flex justify-between items-center max-w-screen-lg m-auto">
         <Link to="/">
           <h1 className="text-2xl font-bold">THE COLLECTION</h1>
         </Link>
 
         <nav>
-          <Link to="/" className="text-base mr-10 text-black font-bold">
+          <NavLink
+            to="/"
+            className={(aux) =>
+              aux.isActive
+                ? "mr-10 text-black font-bold"
+                : "mr-10 text-slate-400"
+            }
+          >
             Home
-          </Link>
-          <Link to="/products" className="mr-10 text-slate-400">
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={(aux) =>
+              aux.isActive
+                ? "mr-10 text-black font-bold"
+                : "mr-10 text-slate-400"
+            }
+          >
             Products
-          </Link>
-          <Link to="/about" className="mr-10 text-slate-400">
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={(aux) =>
+              aux.isActive
+                ? "mr-10 text-black font-bold"
+                : "mr-10 text-slate-400"
+            }
+          >
             About
-          </Link>
-          <Link to="contact" className="mr-20 text-slate-400">
+          </NavLink>
+          <NavLink
+            to="contact"
+            className={(aux) =>
+              aux.isActive
+                ? "mr-10 text-black font-bold"
+                : "mr-10 text-slate-400"
+            }
+          >
             Contact
-          </Link>
+          </NavLink>
         </nav>
 
         <div>
