@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Productos = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
+  const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
   let componentMounted = true;
@@ -35,9 +36,11 @@ const Productos = () => {
     );
   };
 
-  const filterProduct = (product) => {
-    const updated = data.filter((item) => item.category === product);
-    setFilter(updated);
+  const filterProduct = () => {
+    const productsFiltered = data.filter(
+      (item) => item.category === category || !category
+    );
+    return productsFiltered;
   };
 
   const ShowProducts = () => {
@@ -45,45 +48,59 @@ const Productos = () => {
       <div>
         <div className="mt-10 flex justify-center gap-3 pb-5">
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white"
-            onClick={() => setFilter(data)}
+            className={`px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+              category === "" && "bg-black text-white"
+            }`}
+            onClick={() => setCategory("")}
           >
             All
           </button>
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white "
-            onClick={() => filterProduct("men's clothing")}
+            className={`px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+              category === "men's clothing" && "bg-black text-white"
+            }`}
+            onClick={() => setCategory("men's clothing")}
           >
-            Men Clothoing
+            Men's clothing
           </button>
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white "
-            onClick={() => filterProduct("women's clothing")}
+            className={`px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+              category === "women's clothing" && "bg-black text-white"
+            }`}
+            onClick={() => setCategory("women's clothing")}
           >
-            Women Clothoing
+            Women's clothing
           </button>
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white "
-            onClick={() => filterProduct("jewelery")}
+            className={`px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+              category === "jewelery" && "bg-black text-white"
+            }`}
+            onClick={() => setCategory("jewelery")}
           >
             Jewelery
           </button>
           <button
-            className="px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white "
-            onClick={() => filterProduct("electronics")}
+            className={`px-4 py-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+              category === "electronics" && "bg-black text-white"
+            }`}
+            onClick={() => setCategory("electronics")}
           >
-            Eletronic
+            Electronics
           </button>
         </div>
 
         <div className="grid grid-cols-4 gap-3">
-          {filter.map((product) => {
+          {filterProduct().map((product) => {
             return (
               <div
                 className="col-span-1 border rounded p-5 text-center"
                 key={product.id}
               >
-                <img src={product.image} alt="" className="h-64" />
+                <img
+                  src={product.image}
+                  alt=""
+                  className="h-64 object-contain"
+                />
                 <div>
                   <h1 className="mb-2 mt-2 font-bold">
                     {product.title.substring(0, 12)}...

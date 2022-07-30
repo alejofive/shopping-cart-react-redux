@@ -2,10 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import { useParams, Link } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/action";
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+  const addProduct = (product) => {
+    dispatch(addCart(product));
+  };
 
   useEffect(() => {
     const getProduct = async () => {
@@ -44,7 +52,10 @@ const Product = () => {
           <h3 className="font-bold my-4 text-4xl">$ {product.price}</h3>
           <p>{product.description}</p>
           <div className="flex gap-3 mt-5">
-            <button className="px-5 py-2 border border-black rounded-sm hover:bg-black hover:text-white ">
+            <button
+              className="px-5 py-2 border border-black rounded-sm hover:bg-black hover:text-white"
+              onClick={() => addProduct(product)}
+            >
               Add to Cart
             </button>
             <Link
