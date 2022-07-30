@@ -1,6 +1,6 @@
 # Shopping Cart
 
-Ejemplo de un carrito de compras de productos.
+Ejemplo de un carrito de compras.
 
 ## Librerias
 
@@ -12,3 +12,7 @@ Ejemplo de un carrito de compras de productos.
 ## API
 
 https://fakestoreapi.com/products
+
+## Vistas
+
+![Tux, the Linux mascot](/shoppingcart.png)
