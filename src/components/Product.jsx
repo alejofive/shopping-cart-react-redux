@@ -26,7 +26,7 @@ const Product = () => {
     getProduct();
   }, []);
 
-  const Loading2 = () => {
+  const Loading = () => {
     return (
       <div className="mt-20">
         <h1 className="text-3xl">Loading...</h1>
@@ -44,10 +44,11 @@ const Product = () => {
           <h4 className="font-bold uppercase text-gray-400">
             {product.category}
           </h4>
-          <h1 className="text-4xl my-6">{product.title}</h1>
+          <Skeleton className="h-36 w-36"></Skeleton>
+          <h1 Name="text-4xl my-6">{product.title}</h1>
           <p>
             Rating {product.rating && product.rating.rate}
-            <i class="fa-solid fa-star"></i>
+            <i className="fa-solid fa-star"></i>
           </p>
           <h3 className="font-bold my-4 text-4xl">$ {product.price}</h3>
           <p>{product.description}</p>
@@ -72,7 +73,7 @@ const Product = () => {
 
   return (
     <div className="max-w-screen-lg m-auto py-5">
-      <div className="py-4">{loading ? <Loading2 /> : <ShowProducts />}</div>
+      <div className="py-4">{loading ? <Loading /> : <ShowProducts />}</div>
     </div>
   );
 };

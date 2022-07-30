@@ -36,13 +36,13 @@ const Cart = () => {
                   className="px-2 border border-black rounded-sm hover:bg-black hover:text-white"
                   onClick={() => addProduct2(item)}
                 >
-                  <i class="fa-solid fa-minus"></i>
+                  <i className="fa-solid fa-minus"></i>
                 </button>
                 <button
                   className="px-2  border border-black rounded-sm hover:bg-black hover:text-white"
                   onClick={() => addProduct(item)}
                 >
-                  <i class="fa-solid fa-plus"></i>
+                  <i className="fa-solid fa-plus"></i>
                 </button>
               </div>
             </div>
